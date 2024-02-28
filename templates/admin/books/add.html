@@ -1,0 +1,55 @@
+{%extends "/shared/admin_layout.html" %}
+
+{% block title %}Manage Books - Add{% endblock %}
+
+{% block head %}
+	{{ super() }}
+
+    <link rel="stylesheet" href="/static/home.css" />
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+{% endblock %}
+
+{% block content %}
+	<div class="container">
+		<div class="back" style="font-size: 1.5em;position: absolute;">
+			<a href="javascript:history.back()"><i class="bi bi-arrow-left"></i></a>
+		</div>
+		<div class="d-flex justify-content-center">
+			<form action="/books/add" method="GET" class="col-md-5 ">
+			<h3>Add Papers</h3>
+			<div class="form-group">
+				<label for="title">Title</label>
+				<input type="text" name="title" class="form-control" id="title" required  placeholder="Enter paper title">
+				<small class="form-text text-muted">Members will be able to search using title!</small>
+			</div>
+			<div class="form-group">
+				<label for="qty">Enter File</label>
+				<input type="file" name="qty" class="form-control" id="qty" required accept=".pdf, .xlsx, .docx" placeholder="E.g 2">
+			</div>
+			<div class="form-group form-check">
+				<input type="checkbox" name="avaliable" class="form-check-input" id="avaliable" required >
+				<label class="form-check-label" for="avaliable">Avaliable</label>
+				<small class="form-text text-muted">Paper will not be shown to members if unchecked!</small>
+			</div>
+			
+			<div class="platforms mt-3 mb-3">
+				<label class="form-check-label" for="avaliable">Extensions</label>
+				<div style="font-size: 2.1em;">
+					<i class="bi bi-filetype-xls"  style="color: green;"></i>
+					<!-- <i class="bi bi-youtube ml-2" style="color: red;"></i> -->
+					<i class="bi bi-filetype-docx" style="color: blue;"></i>
+					<i class="bi bi-filetype-pdf" style="font-size:38px;color:red"></i>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="desc">Description</label>
+				<textarea id="desc" name="desc" class="form-control"></textarea>
+			</div>
+			
+			<div class="form-group col-12">
+				<button type="submit" class="btn btn-primary">Add</button>
+			</div>
+			</form>
+		</div>
+	</div>
+{% endblock %}
